@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papachoz | Chorizo Artesanal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrapper">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="flame-ring"><img src="logo.png" alt="Papachoz" class="logo-img"></div>
+      <p class="tagline">El chorizo boyacense<br>que enamora</p>
+      <span class="badge-artesanal">100% ARTESANAL</span>
+    </div>
+  </header>
+
+  <main>
+    <form id="pedidoForm">
+
+      <!-- ===================== MENÚ ===================== -->
+      <section class="menu-section form-static" id="menuPrincipal">
+        <h2>🌭 Nuestro Menú</h2>
+        <div class="platos">
+
+          <!-- Choripán -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="Choripan" value="Choripán" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Choripán</span>
+              </label>
+              <span>$15.000</span>
+              <input type="number" class="cantidad" name="ChoripanCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="sabor-row">
+              <span class="sabor-label">🌶️ Sabor del chorizo:</span>
+              <div class="sabor-selects"></div>
+            </div>
+            <div class="descripcion" style="display:none;">Pan artesanal de orégano, chorizo a elección y chimichurri de la casa.</div>
+          </div>
+
+          <!-- Choritaco -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="Choritaco" value="Choritaco" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Choritaco</span>
+              </label>
+              <span>$16.000</span>
+              <input type="number" class="cantidad" name="ChoritacoCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="sabor-row">
+              <span class="sabor-label">🌶️ Sabor del chorizo:</span>
+              <div class="sabor-selects"></div>
+            </div>
+            <div class="descripcion" style="display:none;">Tortilla de maíz, chorizo a elección, guacamole, queso y toppings a tu gusto. Arma tu choritaco a la medida.</div>
+          </div>
+
+          <!-- Pancho -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="Pancho" value="Pancho" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Pancho</span>
+              </label>
+              <span>$17.000</span>
+              <input type="number" class="cantidad" name="PanchoCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="sabor-row">
+              <span class="sabor-label">🌶️ Sabor del chorizo:</span>
+              <div class="sabor-selects"></div>
+            </div>
+            <div class="descripcion" style="display:none;">Pan artesanal de orégano, chorizo a elección, queso fundido y ensalada de la casa.</div>
+          </div>
+
+          <!-- Chorizo Individual -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="ChorizoIndividual" value="Chorizo Individual" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Chorizo Individual</span>
+              </label>
+              <span>$7.000</span>
+              <input type="number" class="cantidad" name="ChorizoIndividualCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="sabor-row">
+              <span class="sabor-label">🌶️ Sabor del chorizo:</span>
+              <div class="sabor-selects"></div>
+            </div>
+            <div class="descripcion" style="display:none;">Chorizo artesanal a la parrilla, jugoso y lleno de sabor.</div>
+          </div>
+
+          <!-- Combo Solo -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="ComboSolo" value="Combo Solo" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Combo Solo</span>
+              </label>
+              <span>$22.500</span>
+              <input type="number" class="cantidad" name="ComboSoloCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="descripcion" style="display:none;">1 persona · Incluye 1 producto principal a elección (Choripán, Pancho o Choritaco) + 1 Chorizo individual + 1 Gaseosa. Ahorra 15%. Cuéntanos tu elección en "Especificaciones".</div>
+          </div>
+
+          <!-- Combo Dúo -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="ComboDuo" value="Combo Dúo" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Combo Dúo</span>
+              </label>
+              <span>$39.000</span>
+              <input type="number" class="cantidad" name="ComboDuoCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="descripcion" style="display:none;">2-3 personas · Incluye 2 productos principales a elección (Choripán, Pancho o Choritaco) + 1 Chorizo individual + 2 Gaseosas. Ahorra 15%. Cuéntanos tu elección en "Especificaciones".</div>
+          </div>
+
+          <!-- Combo Grupo -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="ComboGrupo" value="Combo Grupo" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Combo Grupo</span>
+              </label>
+              <span>$78.000</span>
+              <input type="number" class="cantidad" name="ComboGrupoCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="descripcion" style="display:none;">4-5 personas · Incluye 4 productos principales a elección (Choripán, Pancho o Choritaco) + 2 Chorizos individuales + 4 Gaseosas. Ahorra 15%. Cuéntanos tu elección en "Especificaciones".</div>
+          </div>
+
+          <!-- Gaseosa -->
+          <div class="item">
+            <div class="item-linea">
+              <label>
+                <input type="checkbox" class="check-plato" name="Gaseosa" value="Gaseosa 250ml" onchange="toggleCantidad(this); toggleDescripcion(this)">
+                <span class="nombre-plato">Gaseosa (250 ml)</span>
+              </label>
+              <span>$2.500</span>
+              <input type="number" class="cantidad" name="GaseosaCantidad" value="0" min="0" disabled onfocus="this.select()" oninput="calcularTotal()">
+            </div>
+            <div class="descripcion" style="display:none;">Bebida gaseosa personal 250 ml.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== DETALLES DEL CLIENTE ===================== -->
+      <section class="menu-section form-static">
+        <h2>📝 Detalles del Cliente</h2>
+        <div class="form-body">
+
+          <div class="form-group">
+            <label for="nombre">👤 Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">📞 Número de WhatsApp:</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="Ej: 3001234567">
+          </div>
+
+          <div class="form-group">
+            <label for="tipoEntrega">📦 Tipo de entrega:</label>
+            <select id="tipoEntrega" name="tipoEntrega" required>
+              <option value="">-- Selecciona --</option>
+              <option value="Recoger en el local">Recoger en el local</option>
+              <option value="A domicilio">A domicilio</option>
+              <option value="Comer dentro del local">Comer dentro del local</option>
+            </select>
+          </div>
+
+          <div id="direccionField" class="form-group" style="display:none;">
+            <p id="costoDomicilio" style="display:none;" class="aviso-costo">📌 El costo del domicilio se cuadra por WhatsApp.</p>
+            <label for="direccion">📍 Dirección:</label>
+            <input type="text" id="direccion" name="direccion">
+          </div>
+
+          <div id="mesaField" class="form-group" style="display:none;">
+            <label for="numeroMesa">🔢 Número de mesa:</label>
+            <input type="text" id="numeroMesa" name="numeroMesa">
+          </div>
+
+          <div class="form-group">
+            <label for="tipoPago">💰 Tipo de pago:</label>
+            <select id="tipoPago" name="tipoPago" required>
+              <option value="">-- Selecciona --</option>
+              <option value="Efectivo">Efectivo</option>
+            </select>
+          </div>
+
+          <div id="efectivoField" class="form-group" style="display:none;">
+            <label for="efectivoCliente">💵 Con cuánto pagará:</label>
+            <small>Esto ayuda a preparar el cambio correcto 🙏</small>
+            <input type="text" id="efectivoCliente" name="efectivoMonto">
+          </div>
+
+          <div id="infoPago" style="display:none;">
+            <div id="infoNequi" class="info-transferencia" style="display:none;"></div>
+            <div id="infoBanco" class="info-transferencia" style="display:none;"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="especificaciones">📒 Especificaciones:</label>
+            <textarea id="especificaciones" name="especificaciones" rows="3" placeholder="Ej: sin cebolla, sin salsas..."></textarea>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ===================== TOTAL ===================== -->
+      <section class="menu-section form-static">
+        <h2 class="total-row">💸 Total: <span id="total">$0</span></h2>
+        <div class="form-body">
+          <input type="hidden" name="totalPedido" id="totalPedido">
+
+          <label class="confirm-row">
+            <input type="checkbox" id="confirmPedido" required>
+            ✅ Autorizo el tratamiento de mis datos para gestionar este pedido.
+          </label>
+
+          <button type="submit" class="btn">📲 Enviar Pedido</button>
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+  <footer class="foot">🌭 Papachoz · Sabor boyacense en cada bocado<span class="credito">Powered By AIMAX</span></footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
